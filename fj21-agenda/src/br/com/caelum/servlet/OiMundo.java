@@ -25,5 +25,17 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
 	out.println("<h1>Oi mundo Servlet</h1>");
 	out.println("</body>");
 	out.println("</html>");
+	
+	System.out.println("Service");
 }
+
+public void init(){
+	System.out.println("Init");
+}
+
+public void destroy(){
+	super.destroy();
+	System.out.println("Destroy");
+}
+
 }
