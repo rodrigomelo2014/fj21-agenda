@@ -11,7 +11,7 @@
 </head>
 <body>
 
-
+<c:import url="cabecalho.jsp" />
 	<table>
 		<tr>
 			<th>Nome</th>
@@ -38,5 +38,6 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<c:import url="rodape.jsp" />
 </body>
 </html>
