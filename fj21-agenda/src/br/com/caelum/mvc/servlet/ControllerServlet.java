@@ -15,17 +15,17 @@ public class ControllerServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 
-	protected void service(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
-		String parametro = request.getParameter("logica");
+	protected void service(HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException{
+		String parametro = req.getParameter("logica");
 		String nomeDaClasse = "br.com.caelum.mvc.logica."+parametro;
 		
 		try{
 			Class classe = Class.forName(nomeDaClasse);
 			
 			Logica logica = (Logica) classe.newInstance();
-			String pagina = logica.executa(request, response);
+			String pagina = logica.executa(req, res);
 			
-			request.getRequestDispatcher(pagina).forward(request, response);
+			req.getRequestDispatcher(pagina).forward(req, res);
 		}catch(Exception e){
 			throw new ServletException("A logica de negócios causou uma exceção", e);
 		}
